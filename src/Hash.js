@@ -48,8 +48,8 @@ let h7 = 0x5BE0CD19;
         Size = (512*n) - 64; 
     }
     m = this.fillZero(mes + '1',Size)  + this.fillLenght(mes);
-    console.log(m)
-    console.log(mes.length)
+    //console.log(m)
+    //console.log(mes.length)
 
     // let hh0=[];
     // let hh1=[];

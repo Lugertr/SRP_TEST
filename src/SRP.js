@@ -22,7 +22,9 @@ export default class SPR{
         this.Alice = new Client(g,k,N);
         this.Steve = new Server(g,N,k);
     }
-    reg(l,p) {
+
+    TestHash()
+    {
         const H = new HashOne();
         let ii = [];
         let bb=0;
@@ -50,8 +52,11 @@ export default class SPR{
         console.log(result[70])
         console.log(result[131])
         console.log(bb)
-        //this.Steve.reg(...this.Alice.reg(l,p));
-        //Steve.log(...Alice.loginS("lon","1236"));
+    }
+
+    reg(l,p) {
+       
+        this.Steve.reg(...this.Alice.reg(l,p));
     }
 
     log(l,p)
