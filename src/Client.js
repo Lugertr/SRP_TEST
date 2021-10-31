@@ -1,5 +1,6 @@
 import Generate from "./Generate.js";
-import Hash from "./Hash.js";
+//import Hash from "./Hash.js";
+import HashOne from "./ShaOne.js";
 
 export default class Client{
     N;
@@ -16,13 +17,12 @@ export default class Client{
     Sc;
     M1;
     M2;
-    H = new Hash();
+    H = new HashOne();
 
     constructor(g,k,N)
     {   this.g = BigInt(g);
         this.k = BigInt(k);
         this.N = BigInt(N);
-        //console.log(this.N)
     }
 
     reg(login,password)
@@ -37,7 +37,6 @@ export default class Client{
         //this.x=3n;
         //this.v = (this.g**this.x) % this.N;
         this.v = this.expmod(this.g,this.x,this.N)
-        //console.log(this.v)
         //this.v = this.g**this.x;
         return [this.login,this.v,this.solt]
     }
@@ -59,24 +58,21 @@ export default class Client{
             this.x = BigInt(this.H.hash(s+this.password,1));
             //console.log(this.H.hash(this.A.toString()+B.toString(),1))  
             //this.x = H.hash(this.solt+this.password);
-            let u = BigInt(this.H.hash(this.A.toString()+B.toString(),1));
-            //console.log(this.g**(this.x % this.N))
-            // console.log(this.B + " B")
-            // console.log(this.k + " k")
-            // console.log(this.g + " g")
-            // console.log(this.x + " x")
-            // console.log(this.N + " N")
-            // console.log(this.a + " a")
-            // console.log(u+" uC")
-
+            //let u = BigInt(this.H.hash(this.A.toString()+B.toString(),1));
+            let u = this.H.hash(this.A.toString()+this.B.toString(),1);
+            console.log("-----------------------------------------------------------------------")
+            console.log(this.A)
+            console.log(this.B)
+            console.log("cl U:")
+            console.log(u)
+            u = BigInt(u);
+            console.log(u)
             //this.Sc =(BigInt(B)-BigInt(this.k*this.g**(this.x % this.N))**((this.a+u*this.x)% this.N));
             this.Sc =this.expmod((BigInt(this.B)-(this.k*this.expmod(this.g,this.x,this.N))),(this.a+u*this.x),this.N);
 
             //this.Sc =(BigInt(B)-BigInt(this.k)*(this.g**this.x))**(this.a+this.x);
             //let Sc =(B-this.k*(this.g**this.x))**(this.a+u*this.x);
             console.log(this.Sc+ " Sc")
-            //console.log(this.A+" AC ")
-            //console.log(B+" BC ")
         }
     }
 
@@ -100,6 +96,12 @@ export default class Client{
         }
         console.log(this.M2+" M2")
         console.log(M2+" M2 SERVER")
+        console.log("TEST CL")
+        console.log(this.A + " CL A")
+        console.log(this.B + " CL B")
+        console.log(this.Sc + " CL SC")
+        console.log(this.M1 + " CL M1")
+        console.log(this.M2 + " CL M2")
     }
 
     show() {

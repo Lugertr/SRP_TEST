@@ -12,6 +12,7 @@ let login = document.getElementById("key").value;
 let password = document.getElementById("fkey").value;
 if ((login !='') && (password!='')) {
 Srptest.reg(login,password);
+//Srptest.testh();
 }
 else {
     alert("Заполните все поля!")

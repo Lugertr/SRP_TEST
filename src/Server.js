@@ -1,5 +1,6 @@
 import Generate from "./Generate.js";
-import Hash from "./Hash.js";
+//import Hash from "./Hash.js";
+import HashOne from "./ShaOne.js";
 import Data from "./Storage.js"
 
 
@@ -19,7 +20,8 @@ export default class Server{
     M1;
     M2;
     Ss;
-    H = new Hash();
+    //H = new Hash();
+    H = new HashOne();
     gen = new Generate();
     Database = new Data();
 
@@ -84,24 +86,11 @@ export default class Server{
             let btn = document.createElement("button");
             btn.innerHTML = "Delete";
             btn.name = n;
-            btn.onclick = function() {
-                
-              };
+            btn.style.height = '50px';
+            btn.style.width = "100%";
 
               btn.addEventListener('click', event => {
-                // event.preventDefault();
-                
-                // switch (event.code) {
-                //     case 'ArrowUp':
-                //     case 'ArrowRight':
-                //     case 'ArrowDown':
-                //     case 'ArrowLeft':
-                //     case 'Space':
-                //     case 'Enter':
-                //         this.activeKeys.delete(event.code);
-                // }
                 this.deleteOneReg(btn.name)
-                // this.key = '';
             });
         
 
@@ -130,8 +119,6 @@ export default class Server{
                 let text = this.Database.get(l).split(" ");
                 this.v = BigInt(text[0]);
                 this.s = text[1];
-                console.log(this.v)
-                console.log(this.s)
             // while ((this.OurData[this.i][0]!=l) )
             // {   
             //     if ((this.OurData.length<=this.i)) {
@@ -150,7 +137,6 @@ export default class Server{
                 return [0,0,false]
             }
         }
-        //console.log( [this.B,this.Data[this.i][2]])
         return [this.B,this.s,true]
     }
     catch {
@@ -159,13 +145,16 @@ export default class Server{
     }
 
     stepTWOS() {
-        let u = BigInt(this.H.hash(this.A.toString()+this.B.toString(),1));
+        //let u = BigInt(this.H.hash(this.A.toString()+this.B.toString(),1));
+        let u = this.H.hash(this.A.toString()+this.B.toString(),1);
+        console.log(this.A)
+        console.log(this.B)
+        console.log("server U:")
+        console.log(u)
+        u = BigInt(u);
         //let Ss = (this.A*(this.Data[this.i][1]))**this.b;
         console.log(u+" uS")
         this.Ss = this.expmod((this.A*(this.expmod(this.v,u,this.N))),this.b,this.N);
-        //this.i = 0;
-        //console.log(this.Ss+" As ")
-        //console.log(this.B+" Bs ")
     }
 
     chekM1(M1) {
@@ -173,6 +162,7 @@ export default class Server{
         console.log(this.Ss+ " Ss")
         this.M1 = BigInt(this.H.hash((this.A.toString()+this.B.toString()+this.Ss.toString()).toString(),1));
         console.log(this.M1+" M1")
+        
         if (this.M1!=M1)
         {
             console.log("fail")
@@ -185,6 +175,12 @@ export default class Server{
     createM2()
     {
         this.M2 = BigInt(this.H.hash((this.A.toString()+this.M1.toString()+this.Ss.toString()).toString(),1));
+        console.log("TEST SER")
+        console.log(this.A + " A SER")
+        console.log(this.B + " B SER")
+        console.log(this.Ss + " SC SER")
+        console.log(this.M1 + " M1 SER")
+        console.log(this.M2 + " M2 SER")
         return this.M2
     }
 
@@ -193,7 +189,6 @@ export default class Server{
         //BBB.innerHTML = this.B; + " B"
         MS1.innerHTML = this.M1.toString(16);
         MS2.innerHTML = this.M2.toString(16);
-        //console.log(this.Data)
     }
 
     expmod( base, exp, mod ){
