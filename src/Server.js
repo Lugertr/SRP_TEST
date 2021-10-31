@@ -46,7 +46,6 @@ export default class Server{
 
         d.push(l,v,s)
        this.Database.add(...d);
-       alert("Успех")
        this.showTable();
     }
 
