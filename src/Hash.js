@@ -31,34 +31,14 @@ let h7 = 0x5BE0CD19;
     0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585, 0x106AA070,
    0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3,
     0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2]
-// if (message.length>=54)
-// {
-//     hh = this.hash(message.substring(53),2);
-//     console.log(message.substring(53))
-//     console.log(message.substring(0,53))
-//     console.log(message)
-//     mes = this.text2Binary(message.substring(0,53)); 
-//     console.log("auf")
-// }
-// else {
+
     mes = this.text2Binary(message);
-//}
     while (Size<=mes.length)
     {   n +=1;
         Size = (512*n) - 64; 
     }
     m = this.fillZero(mes + '1',Size)  + this.fillLenght(mes);
-    //console.log(m)
-    //console.log(mes.length)
 
-    // let hh0=[];
-    // let hh1=[];
-    // let hh2=[];
-    // let hh3=[];
-    // let hh4=[];
-    // let hh5=[];
-    // let hh6=[];
-    // let hh7=[];
 
     for (let nn=0;nn<n;nn++)
     {
@@ -129,56 +109,6 @@ for (let i=16;i<64;i++) {
     h6 = this.overflow(h6 + g);
     h7 = this.overflow(h7 + h);
 
-    //console.log(h0.toString(16))
-    
-    // hh0[nn] = this.overflow(h0 + a);
-    // hh1[nn] = this.overflow(h1 + b);
-    // hh2[nn] = this.overflow(h2 + c);
-    // hh3[nn] = this.overflow(h3 + d);
-    // hh4[nn] = this.overflow(h4 + e);
-    // hh5[nn] = this.overflow(h5 + f);
-    // hh6[nn] = this.overflow(h6 + g);
-    // hh7[nn] = this.overflow(h7 + h);
-
-
-    //console.log((h0.toString(16)+h1.toString(16)+h2.toString(16)+h3.toString(16)+h4.toString(16)+h5.toString(16)+h6.toString(16)+h7.toString(16)))
-    // if (hh !=undefined)
-    // {  
-    //     h0 = this.overflow(h0 + hh[0]);
-    //     h1 = this.overflow(h1 + hh[1]);
-    //     h2 = this.overflow(h2 + hh[2]);
-    //     h3 = this.overflow(h3 + hh[3]);
-    //     h4 = this.overflow(h4 + hh[4]);
-    //     h5 = this.overflow(h5 + hh[5]);
-    //     h6 = this.overflow(h6 + hh[6]);
-    //     h7 = this.overflow(h7 + hh[7]);
-    // }
-    }
-
-    // console.log(hh0)
-    // for (let nn=n-1;nn>0;nn--)
-    // {
-    //     hh0[nn-1] = this.overflow(hh0[nn-1] + hh0[nn]);
-    //     hh1[nn-1] = this.overflow(hh1[nn-1] + hh1[nn]);
-    //     hh2[nn-1] = this.overflow(hh2[nn-1] + hh2[nn]);
-    //     hh3[nn-1] = this.overflow(hh3[nn-1] + hh3[nn]);
-    //     hh4[nn-1] = this.overflow(hh4[nn-1] + hh4[nn]);
-    //     hh5[nn-1] = this.overflow(hh5[nn-1] + hh5[nn]);
-    //     hh6[nn-1] = this.overflow(hh6[nn-1] + hh6[nn]);
-    //     hh7[nn-1] = this.overflow(hh7[nn-1] + hh7[nn]);
-    // }
-
-    // h0 = hh0[0];
-    // h1 = hh1[0];
-    // h2 = hh2[0];
-    // h3 = hh3[0];
-    // h4 = hh4[0];
-    // h5 = hh5[0];
-    // h6 = hh6[0];
-    // h7 = hh7[0];
-
-    //console.log(h0.toString(16))
-
     switch(s) {
         case 0:
 
@@ -238,13 +168,9 @@ text2Binary(string) {
 }
 
 fillLenght(m) {
-    //console.log(m.length)
-    //if (m.length<53)
+
         m = m.length.toString(2);
-    //else
-    //{   let n = 53;
-    //    m = n.toString(2);
-    //}
+
 
     return (this.fillZero('',62-m.length) + m)
 }

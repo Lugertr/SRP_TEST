@@ -6,7 +6,6 @@ import Data from "./Storage.js"
 
 
 export default class Server{
-    Tr=0;
     N;
     k;
     OurData = []
@@ -38,14 +37,6 @@ export default class Server{
     reg(l,v,s)
     {   
         let d= [];
-        // for (let q=0;q<this.OurData.length;q++)
-        // {
-        //     if (l==this.OurData[q][0])
-        //     {
-        //         alert("Такой пользователь уже зарегестрирован!");
-        //         return
-        //     }
-        // }
         if (this.Database.get(l)!= null)
         {
             alert("Такой пользователь уже зарегестрирован!");
@@ -54,11 +45,9 @@ export default class Server{
         }
 
         d.push(l,v,s)
-       //this.OurData.push(d);
        this.Database.add(...d);
        alert("Успех")
        this.showTable();
-       //this.regN+=1;
     }
 
 
@@ -97,7 +86,6 @@ export default class Server{
             dell.appendChild(btn);
             log.appendChild(TextLog);
             sol.appendChild(TextSol);
-            //T2.innerHTML = text[1];
         }
     }
 
@@ -119,19 +107,11 @@ export default class Server{
                 let text = this.Database.get(l).split(" ");
                 this.v = BigInt(text[0]);
                 this.s = text[1];
-            // while ((this.OurData[this.i][0]!=l) )
-            // {   
-            //     if ((this.OurData.length<=this.i)) {
-            //         this.B=0;
-            //         return [this.B,0,false]
-            //     }
-            //     this.i+=1;
-            // }
+
 
                 this.b = this.gen.create(16);
                 this.B = this.k*this.v+this.expmod(this.g,this.b,this.N);
-            //this.B = this.k*this.OurData[this.i][1]+this.expmod(this.g,this.b,this.N);
-            //this.B = 2n*this.Data[this.i][1]+this.g**this.b;
+
             }
             else {
                 return [0,0,false]
@@ -145,14 +125,12 @@ export default class Server{
     }
 
     stepTWOS() {
-        //let u = BigInt(this.H.hash(this.A.toString()+this.B.toString(),1));
         let u = this.H.hash(this.A.toString()+this.B.toString(),1);
         console.log(this.A)
         console.log(this.B)
         console.log("server U:")
         console.log(u)
         u = BigInt(u);
-        //let Ss = (this.A*(this.Data[this.i][1]))**this.b;
         console.log(u+" uS")
         this.Ss = this.expmod((this.A*(this.expmod(this.v,u,this.N))),this.b,this.N);
     }

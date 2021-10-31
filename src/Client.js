@@ -47,8 +47,6 @@ export default class Client{
         const gen = new Generate();
         this.a = gen.create(16);
         this.A = this.expmod(this.g,this.a,this.N)
-        //this.A = this.g**(this.a % this.N);
-        //this.A = this.g**this.a;
         return [login,this.A]
     }
 
@@ -56,9 +54,7 @@ export default class Client{
         if (B!=0)
         {   this.B = B;
             this.x = BigInt(this.H.hash(s+this.password,1));
-            //console.log(this.H.hash(this.A.toString()+B.toString(),1))  
-            //this.x = H.hash(this.solt+this.password);
-            //let u = BigInt(this.H.hash(this.A.toString()+B.toString(),1));
+
             let u = this.H.hash(this.A.toString()+this.B.toString(),1);
             console.log("-----------------------------------------------------------------------")
             console.log(this.A)
@@ -67,11 +63,7 @@ export default class Client{
             console.log(u)
             u = BigInt(u);
             console.log(u)
-            //this.Sc =(BigInt(B)-BigInt(this.k*this.g**(this.x % this.N))**((this.a+u*this.x)% this.N));
             this.Sc =this.expmod((BigInt(this.B)-(this.k*this.expmod(this.g,this.x,this.N))),(this.a+u*this.x),this.N);
-
-            //this.Sc =(BigInt(B)-BigInt(this.k)*(this.g**this.x))**(this.a+this.x);
-            //let Sc =(B-this.k*(this.g**this.x))**(this.a+u*this.x);
             console.log(this.Sc+ " Sc")
         }
     }
@@ -91,8 +83,6 @@ export default class Client{
             console.log("fail")
         }
         else{ console.log("OK")
-        //const content = document.body.innerHTML;
-        //document.body.innerHTML = "Это просто текст";
         }
         console.log(this.M2+" M2")
         console.log(M2+" M2 SERVER")

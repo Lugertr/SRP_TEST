@@ -12,7 +12,6 @@ let login = document.getElementById("key").value;
 let password = document.getElementById("fkey").value;
 if ((login !='') && (password!='')) {
 Srptest.reg(login,password);
-//Srptest.testh();
 }
 else {
     alert("Заполните все поля!")
@@ -29,5 +28,3 @@ log.addEventListener("click", ()=>{
         alert("Заполните все поля!")
     }
     });
-//const H = new HashOne();
-//console.log(parseInt(H.hash("sha",0),2).toString(16))
