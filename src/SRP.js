@@ -59,7 +59,7 @@ export default class SPR{
         this.Steve.reg(...this.Alice.reg(l,p));
     }
 
-    log(l,p)
+     log(l,p)
     {
         let i = this.Steve.log(...this.Alice.loginS(l,p));
         if (i[2]!=false)
@@ -72,7 +72,7 @@ export default class SPR{
             this.Alice.show();
         }
         else {
-            alert("Error")
+            alert("Не удалось найти пользователя")
         }
     }
 }

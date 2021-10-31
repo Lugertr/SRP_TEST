@@ -11,9 +11,25 @@ export default class Data{
         return i;
     }
 
+    deleteEl(l)
+    {
+        localStorage.removeItem(l);
+    }
+
     clear()
     {
         localStorage.clear();
+    }
+
+
+    getSize()
+    {
+        return localStorage.length;
+    }
+    showKey(i)
+    {
+            return localStorage.key(i);  
+            //console.log(localStorage.getItem(key));
     }
 
     

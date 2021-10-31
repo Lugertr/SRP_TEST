@@ -5,6 +5,7 @@ import Data from "./Storage.js"
 
 
 export default class Server{
+    Tr=0;
     N;
     k;
     OurData = []
@@ -26,8 +27,9 @@ export default class Server{
         this.Database.clear();
         this.g = g;
         this.N = BigInt(N);
-        this.k = BigInt(k);
-
+        this.k = BigInt(k); 
+        Gmean.innerHTML = this.g;
+        Kmean.innerHTML = this.k;
     }
     
 
@@ -53,15 +55,76 @@ export default class Server{
        //this.OurData.push(d);
        this.Database.add(...d);
        alert("Успех")
-        //console.log(this.Data)
+       this.showTable();
+       //this.regN+=1;
     }
+
+
+    async showTable(){
+        let table = document.getElementById("tableId");
+        while (table.rows.length>2)
+        {
+            table.deleteRow(-1);
+        }
+        for (let i=0;i<this.Database.getSize();i++)
+        {   
+            let n = this.Database.showKey(i);
+            let text = this.Database.get(n).split(" ");
+
+            let tr = table;
+            let newRow = tr.insertRow(-1);
+
+            let log = newRow.insertCell(0); 
+            let TextLog = document.createTextNode(n);
+
+            let sol = newRow.insertCell(1); 
+            let TextSol = document.createTextNode(text[1]);
+
+            let dell = newRow.insertCell(2); 
+            let btn = document.createElement("button");
+            btn.innerHTML = "Delete";
+            btn.name = n;
+            btn.onclick = function() {
+                
+              };
+
+              btn.addEventListener('click', event => {
+                // event.preventDefault();
+                
+                // switch (event.code) {
+                //     case 'ArrowUp':
+                //     case 'ArrowRight':
+                //     case 'ArrowDown':
+                //     case 'ArrowLeft':
+                //     case 'Space':
+                //     case 'Enter':
+                //         this.activeKeys.delete(event.code);
+                // }
+                this.deleteOneReg(btn.name)
+                // this.key = '';
+            });
+        
+
+            dell.appendChild(btn);
+            log.appendChild(TextLog);
+            sol.appendChild(TextSol);
+            //T2.innerHTML = text[1];
+        }
+    }
+
+
+    deleteOneReg(btn) 
+    {  
+        this.Database.deleteEl(btn);
+        this.showTable();
+    }
+
 
     log(l,A)
     {   try {
         if (A!=0)
-        {   
+        { 
             this.A = A;
-            console.log(this.Database.get(l));
             if (this.Database.get(l)!=null)
             {
                 let text = this.Database.get(l).split(" ");
@@ -82,6 +145,9 @@ export default class Server{
                 this.B = this.k*this.v+this.expmod(this.g,this.b,this.N);
             //this.B = this.k*this.OurData[this.i][1]+this.expmod(this.g,this.b,this.N);
             //this.B = 2n*this.Data[this.i][1]+this.g**this.b;
+            }
+            else {
+                return [0,0,false]
             }
         }
         //console.log( [this.B,this.Data[this.i][2]])
@@ -125,8 +191,8 @@ export default class Server{
     show() {
         //AAA.innerHTML = this.A + " A";
         //BBB.innerHTML = this.B; + " B"
-        MS1.innerHTML = this.M1.toString(16) + " M1 СЕРВЕРА";
-        MS2.innerHTML = this.M2.toString(16) + " M2 СЕРВЕРА";
+        MS1.innerHTML = this.M1.toString(16);
+        MS2.innerHTML = this.M2.toString(16);
         //console.log(this.Data)
     }
 

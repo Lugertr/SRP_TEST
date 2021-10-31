@@ -103,8 +103,8 @@ export default class Client{
     }
 
     show() {
-        MC1.innerHTML = this.M1.toString(16) + " М1 КЛИЕНТА";
-        MC2.innerHTML = this.M2.toString(16) + " М2 КЛИЕНТА";
+        MC1.innerHTML = this.M1.toString(16);
+        MC2.innerHTML = this.M2.toString(16);
     }
 
     expmod( base, exp, mod ) {

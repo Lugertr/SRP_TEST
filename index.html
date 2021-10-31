@@ -5,33 +5,107 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-
+    
 
 </head>
 <body>
-    <p>
-    login:
-    </p>
-    <input id="key" type="text" size="10" maxlength="15" value="login" />
-    <p>
-    password:
-    </p>    
-    <input id="fkey" type="text" size="10" maxlength="15" value="password" />
-    <script src = index.js type = "module" async></script>
-    <button id="button">Регистрация</button>
-    <button id="btn" >Вход</button>
-    <p></p>
-    <div id="AAA"></div>
-    <p></p>
-    <div id="BBB"></div>
-    <p></p>
-    <div id="MS1"></div>
-    <p></p>
-    <div id="MC1"></div>
-    <p></p>
-    <div id="MS2"></div>
-    <p></p>
-    <div id="MC2"></div>
+    <table border="1">
+        <tr>
+        <td  rowspan="7">
+            <p>
+                login:
+                <p>
+                    <input id="key" type="text" size="10" maxlength="15" value="login" />
+                </p>
+
+            </p>
+            <p>
+                password:
+            </p>
+                <p>
+                <input id="fkey" type="text" size="10" maxlength="15" value="password" />
+            </p>    
+            <script src = index.js type = "module" async></script>
+            <button id="button">Регистрация</button>
+            <button id="btn" >Вход</button>
+         </td>
+
+         <th> 
+            <p>
+             k:
+            </p>
+         </th>
+
+         <th> 
+            <div id="Kmean"></div>
+        </th>
+        </tr>
+        <th> 
+            <p>
+             g:
+            </p>
+         </th>
+
+         <th> 
+            <div id="Gmean"></div>
+        </th>
+         <tr>
+         <td> 
+            <p>
+             M1 Сервера:
+            </p>
+         </td>
+         <td> 
+            <div id="MS1"></div>
+        </td>
+        </tr>
+        <tr>
+            <td>
+                <p>
+                    М1 Клиента:
+                </p>
+            </td>
+            <td>
+                <div id="MC1" ><pre>                                                                       </pre></div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p>
+                    М2 сервера:
+                </p>
+            </td>
+            <td>
+                <div id="MS2"></div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p>
+                    М2 Клиента:
+                </p>
+            </td>
+            <td>
+                <div id="MC2"></div>
+            </td>
+        </tr>
+       </table>
+
+    <table border ="1"  id = "tableId">
+        <caption>Зарегестрированные пользователи</caption>
+        <tr >
+            <td>
+                Логин
+            </td>   
+            <td>
+                Соль
+            </td>
+        </tr>
+        <tr>
+
+        </tr>
+    </table>
+   
     <p></p>
     <div id="data"></div>
 </body>
