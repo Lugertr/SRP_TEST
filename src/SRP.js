@@ -66,8 +66,8 @@ export default class SPR{
         {
             this.Alice.stepTWO(...i);
             this.Steve.stepTWOS();
-            this.Steve.chekM1(this.Alice.createM1());
-            this.Alice.chekM2(this.Steve.createM2());
+            let a = this.Steve.chekM1(this.Alice.createM1());
+            this.Alice.chekM2(this.Steve.createM2(),a);
             this.Steve.show();
             this.Alice.show();
         }

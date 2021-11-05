@@ -80,9 +80,7 @@ export default class Client{
         this.M2 = BigInt(this.H.hash(this.A.toString()+this.M1.toString()+this.Sc.toString(),1));
         if (this.M2!=M2)
         {
-            console.log("fail")
-        }
-        else{ console.log("OK")
+            alert("Неправильный пароль!")
         }
         console.log(this.M2+" M2")
         console.log(M2+" M2 SERVER")

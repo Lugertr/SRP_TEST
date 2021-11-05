@@ -6,9 +6,9 @@ body {
 }
 
 table {
-    width: 60%;
-    border-collapse: collapse;
-    border: 3px solid rgb(0, 0, 0);
+  width: 50%;
+  border-collapse: collapse;
+  border: 3px solid rgb(0, 0, 0);
   }
 
 
@@ -29,12 +29,29 @@ table {
     font-size: 20px;
   }
 
-#tableid {
+
+  #login {
+    float:left;
+    width: 20%;
+
+  }
+
+  #info {
+    float:right;
+    width: 78%;
+  }
+
+#third {
+  height:50px;
+  width:50%;
+}
+
+#tableId {
+    
     right: -50;
+    width: 100%;
     border-collapse: collapse;
     border: 3px solid rgb(0, 0, 0);
-    width: 20%;
-    float:left;
 
 }
 

@@ -142,10 +142,10 @@ export default class Server{
         
         if (this.M1!=M1)
         {
-            console.log("fail")
+            return false
         }
         else {
-            console.log("GOOD")
+            return true
         }
     }
 

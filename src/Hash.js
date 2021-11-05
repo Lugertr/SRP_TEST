@@ -108,6 +108,7 @@ for (let i=16;i<64;i++) {
     h5 = this.overflow(h5 + f);
     h6 = this.overflow(h6 + g);
     h7 = this.overflow(h7 + h);
+}
 
     switch(s) {
         case 0:
@@ -131,10 +132,6 @@ for (let i=16;i<64;i++) {
     }
     
 
-    hashshow10()
-    {
-        return 
-    }
 
     overflowT(t) {
         while (t.length>32) {
