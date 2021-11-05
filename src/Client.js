@@ -56,11 +56,6 @@ export default class Client{
             this.x = BigInt(this.H.hash(s+this.password,1));
 
             let u = this.H.hash(this.A.toString()+this.B.toString(),1);
-            console.log("-----------------------------------------------------------------------")
-            console.log(this.A)
-            console.log(this.B)
-            console.log("cl U:")
-            console.log(u)
             u = BigInt(u);
             console.log(u)
             this.Sc =this.expmod((BigInt(this.B)-(this.k*this.expmod(this.g,this.x,this.N))),(this.a+u*this.x),this.N);

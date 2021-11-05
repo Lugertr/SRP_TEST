@@ -70,7 +70,10 @@ export default class Server{
             let sol = newRow.insertCell(1); 
             let TextSol = document.createTextNode(text[1]);
 
-            let dell = newRow.insertCell(2); 
+            let ver = newRow.insertCell(2); 
+            let TextVer = document.createTextNode(text[0]);
+
+            let dell = newRow.insertCell(3); 
             let btn = document.createElement("button");
             btn.innerHTML = "Delete";
             btn.name = n;
@@ -85,6 +88,7 @@ export default class Server{
             dell.appendChild(btn);
             log.appendChild(TextLog);
             sol.appendChild(TextSol);
+            ver.appendChild(TextVer);
         }
     }
 
