@@ -1,4 +1,4 @@
-export default class Data{
+export default class DataBase{
 
     add(l,v,s)
     {   let i = v.toString()+ " " + s.toString();
@@ -29,7 +29,6 @@ export default class Data{
     showKey(i)
     {
             return localStorage.key(i);  
-            //console.log(localStorage.getItem(key));
     }
 
     

@@ -1,60 +1,165 @@
-body {
-    text-align: center;
-    margin: 0;
-    padding: 0;
-    background-color: rgba(240, 240, 240, 0.575);
+
+*{
+  color: #756767;
+  font: italic /35px "Bradley Hand", cursive;
+  text-align:center;
+  
 }
 
-table {
+body{
+  background-color: rgb(255, 255, 255);
+}
+
+
+
+button {
+  border:2px solid rgb(204, 216, 253);
+  background-color: #faecfa;
+  background-position: 0px 150px;
+  -webkit-border-radius: 5px;
+-moz-border-radius: 5px;
+border-radius: 5px;
+cursor: pointer;
+
+
+
+}
+
+button span {
+  
+  margin: auto;
+}
+
+.Tel{
+  
+  padding: 10px;
+  border: 1px solid rgb(165, 163, 163);
+
+}
+
+.nav-tabs{
+  display: flex;
+  justify-content: space-around;
+}
+.nav-tab{
+  font-size: 20px;
+  margin-right: 2px;
+  padding: 1em 8em;
+  background-color: #f7f4f0;
+  border-bottom: 0;
+  text-decoration: none;
+}
+.nav-tab.active{
+  background: #fdf0db;
+  cursor: default;               
+}
+.tab-content{
+  font-size: 20px;
+  background: #fdf0db;
+}
+.tab-pane{
+  display: none;
+  padding: 30px;
+}
+.tab-pane.active{
+  display: flex;
+}
+
+.SRPtest{
+  display: grid;
+  grid-template-columns: 1fr 8fr;
+  grid-column-start: 2;
+  grid-auto-columns: 100%;
+}
+
+.logFiel{
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-column-start: 1;
+  align-items: center;
+  justify-items: center;
+}
+
+.SRPfield{
+  width: 100%;
+  display: grid;
+  grid-gap: 40px;
+  grid-template-columns: 1fr 5fr;
+}
+
+
+.UserBase{
+  display: grid;
+  grid-row-start: 2;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-template-columns: 2fr 4fr 4fr 1fr;
+}
+
+
+
+.SimulateChat{
+  width: 100%;
+  height: 450px;
+  display:grid;
+  grid-gap: 40px;
+  grid-template-columns: 1fr;
+  justify-items: center;
+}
+
+.DFHELMANSimchat{
+  grid-template-rows: 1fr 3fr;
+}
+
+.RSASimchat{
+  grid-template-rows: 1fr 2fr 3fr;
+}
+
+.chat{
+  overflow-x: hidden; 
+  vertical-align: text-top;
+  font-size:15px;
+  background-color: #faecfa;
+  border:2px solid rgb(204, 216, 253);
+}
+
+
+.DF{
+  grid-row-start: 2;
+  grid-row-end: 4;
+  width: 20%;
+}
+
+.RSAchat{
   width: 50%;
-  border-collapse: collapse;
-  border: 3px solid rgb(0, 0, 0);
-  }
-
-
-
-  td,tr {
-    padding: 10px;
-    border: 1px solid rgb(0, 0, 0);
-  }
-
-  th {
-    background-color: rgb(233, 226, 217);
-    padding: 10px;
-    border: 1px solid rgb(0, 0, 0);
-  }
-
-  caption {
-    font-weight:bold;
-    font-size: 20px;
-  }
-
-
-  #login {
-    float:left;
-    width: 20%;
-
-  }
-
-  #info {
-    float:right;
-    width: 78%;
-  }
-
-#third {
-  width: 300px;
 }
 
-#tableId {
-    
-    right: -50;
-    width: 100%;
-    border-collapse: collapse;
-    border: 3px solid rgb(0, 0, 0);
-
+.chatButton{
+  width: 30%;
+  font-size: 30px;
 }
 
-  p {
-      width: 100%;
-  }
+.hashtable{
+  width: 100%;
+  height: 300px;
+  display:flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.hashinside{
+  font-size: 20px;
+  width: 38%;
+  height: 20%;
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  
+}
+
+.log{
+  padding: 10px;
+  width: 50%;
+}
+
 

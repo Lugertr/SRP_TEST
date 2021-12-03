@@ -9,138 +9,64 @@
 
 </head>
 <body>
-    <table id = "login">
-        <td  >
-            <p>
-                login:
-                <p>
-                    <input id="key" type="text" size="10" maxlength="15" value="login" />
-                </p>
-
-            </p>
-            <p>
-                password:
-            </p>
-                <p>
-                <input id="fkey" type="text" size="10" maxlength="15" value="password" />
-            </p>    
-            <script src = index.js type = "module" async></script>
-            <p>
-                <button id="button">Регистрация</button>
-            </p>
-            <p>
-                <button id="btn" >Вход</button>
-            </p>
-         </td>
-    </table>
-
-    <table id = "info">
-        <tr>
-       <!-- <td  rowspan="7">
-            <p>
-                login:
-                <p>
-                    <input id="key" type="text" size="10" maxlength="15" value="login" />
-                </p>
-
-            </p>
-            <p>
-                password:
-            </p>
-                <p>
-                <input id="fkey" type="text" size="10" maxlength="15" value="password" />
-            </p>    
-            <script src = index.js type = "module" async></script>
-            <p>
-                <button id="button">Регистрация</button>
-            </p>
-            <p>
-                <button id="btn" >Вход</button>
-            </p>
-         </td>-->
-
-         <td> 
-            <p>
-             k:
-            </p>
-         </td>
-
-         <td> 
-            <div id="Kmean"></div>
-        </td>
-        </tr> 
-        <td> 
-            <p>
-             g:
-            </p>
-         </td>
-
-         <td> 
-            <div id="Gmean"></div>
-        </td>
-         <tr>
-         <td> 
-            <p>
-             M1 Сервера:
-            </p>
-         </td>
-         <td> 
-            <div id="MS1"></div>
-        </td>
-        </tr>
-        <tr>
-            <td>
-                <p>
-                    М1 Клиента:
-                </p>
-            </td>
-            <td>
-                <div id="MC1" ><pre>                                                                       </pre></div>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <p>
-                    М2 сервера:
-                </p>
-            </td>
-            <td>
-                <div id="MS2"></div>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <p>
-                    М2 Клиента:
-                </p>
-            </td>
-            <td>
-                <div id="MC2"></div>
-            </td>
-        </tr>
-       </table>
-  <p></p>
-
-    <table  id = "tableId">
-        <caption >Зарегестрированные пользователи</caption>
-        <tr >
-            <th width="300px">
-                Логин
-            </th>   
-            <th  width ="900px">
-                Соль
-            </th>
-            <th width ="900px">
-                Верификатор
-            </th>
-            <th width="400px">
-            
-            </th>
-        </tr>
-        <tr>
-
-        </tr>
-    </table>
-   
+    <script src = index.js type = "module" async></script>
+    <div class="nav-tabs">
+        <a href="#" data-tab="1" class="nav-tab active">SRP</a>
+        <a href="#" data-tab="2" class="nav-tab">DiffiHelman</a>
+        <a href="#" data-tab="3" class="nav-tab">RSA</a>
+        <a href="#" data-tab="4" class="nav-tab">Sha256</a>
+        <a href="#" data-tab="5" class="nav-tab">Simple&nbsphash</a>
+      </div>
+      <div class="tab-content">
+        <div data-tab-content="1" class="tab-pane active">
+            <div class="SRPfield">
+            <div class="logFiel">
+                <input id="key" class="log" type="text" size="10" maxlength="15" value="login" />
+                <input id="fkey" class="log" type="text" size="10" maxlength="15" value="password" />
+                <button id="button" class="log">Регистрация</button>
+                <button id="btn" class="log">Вход</button>
+            </div>
+            <div class="SRPtest">
+                <span class="Tel">k</span>  <div id="Kmean" class="Tel"></div>
+                <span class="Tel">g</span>  <div id="Gmean" class="Tel"></div>
+                <span class="Tel">M1 Сервера</span> <div id="MS1" class="Tel"></div> 
+                <span class="Tel">M1 Клиента</span> <div id="MC1" class="Tel"></div>
+                <span class="Tel">M2 Сервера</span> <div id="MS2" class="Tel"></div>
+                <span class="Tel">M2 Клиента</span> <div id="MC2" class="Tel"></div>
+            </div>
+            <div class="UserBase" id="UserBase">
+                <span class="Tel">Логин</span><span class="Tel">Соль</span> <span class="Tel">Верификатор</span> <span class="Tel"></span> 
+                
+            </div>
+            </div>
+        </div>
+        <div data-tab-content="2" class="tab-pane">
+          <div class="SimulateChat DFHELMANSimchat">
+              <textarea class="chat DF" title = "chatingFiled" id="DFchat" disabled="true"></textarea>
+              <button id="DiffiHelman"  class="chatButton">Рассчитать</button>
+          </div>
+        </div>
+        <div data-tab-content="3" class="tab-pane">
+            <div class="SimulateChat RSASimchat">
+                <input id="messageRSA" class="log" type="text" size="10" value="1234567" />
+                <button id="RSA" class="chatButton">Рассчитать</button>
+                <textarea title = "chatingFiled" id="RSAchat" class="chat RSAchat" disabled="true"></textarea>
+            </div>
+        </div>
+        <div data-tab-content="4" class="tab-pane">
+            <div class="hashtable">
+                <input class="hashinside" id="hashingSHA" type="text"  value="sha256" />
+                <button class="hashinside" id="sha"><span>Хешировать</span></button>
+                <div class="hashinside" id="ShaName"></div>
+            </div>
+        </div>
+        <div data-tab-content="5" class="tab-pane">
+            <div class="hashtable">
+                <input class="hashinside" id="hashing"  type="text"   value="hash" />
+                <button class="hashinside" id="hash"><span>Хешировать</span></button>
+                <div class="hashinside" id="HashName"></div>
+            </div>
+        </div>
+      </div>
 </body>
 </html> 
