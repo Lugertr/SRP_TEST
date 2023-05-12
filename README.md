@@ -1,3 +1,5 @@
+https://lugertr.github.io/protect_of_information.github.io/
+
 # 2 Проект по предмету "Защита Информации". 
 В папке src находится алгоритмы криптографических протоколов Диффи-Хелмана, RSA и SRP.
 
